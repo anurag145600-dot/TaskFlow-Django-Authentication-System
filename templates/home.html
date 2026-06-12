@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TaskFlow</title>
+</head>
+
+<body>
+
+    <h1>Welcome to TaskFlow</h1>
+
+    {% if user.is_authenticated %}
+
+        <p>Logged in as: {{ user.username }}</p>
+
+        {% if user.is_superuser %}
+            <p><strong>Role: Administrator</strong></p>
+            <a href="/admin/">Admin Panel</a>
+        {% else %}
+            <p><strong>Role: Regular User</strong></p>
+        {% endif %}
+
+        <br><br>
+
+        <a href="/logout/">Logout</a>
+
+    {% else %}
+
+        <a href="/register/">Register</a>
+
+        <br><br>
+
+        <a href="/login/">Login</a>
+
+    {% endif %}
+
+</body>
+
+</html>
